@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "reverion_icp_backend": {
+      "main": "src/reverion_icp_backend/main.mo",
+      "type": "motoko"
+    },
+    "reverion_icp_frontend": {
+      "dependencies": [
+        "reverion_icp_backend"
+      ],
+      "source": [
+        "src/reverion_icp_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "reverion_icp_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
