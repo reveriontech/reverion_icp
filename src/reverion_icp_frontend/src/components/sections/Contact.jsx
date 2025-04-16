@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaPaperPlane, FaUser } from 'react-icons/fa';
 
 const Contact = () => {
@@ -15,6 +15,14 @@ const Contact = () => {
     isSuccess: false,
     isSubmitting: false
   });
+  
+  // Animation controls for scroll reveal
+  const controls = useAnimation();
+  
+  useEffect(() => {
+    // Start animations when component mounts
+    controls.start("visible");
+  }, [controls]);
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,7 +79,9 @@ const Contact = () => {
       opacity: 1,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
+        duration: 0.5,
+        ease: "easeInOut"
       }
     }
   };
@@ -81,30 +91,27 @@ const Contact = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.4 }
+      transition: { duration: 0.4, ease: "easeOut" }
+    }
+  };
+  
+  const formVariants = {
+    hidden: { opacity: 0, scale: 0.98 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 }
     }
   };
 
   return (
-    <section style={{ 
-      backgroundColor: "#ffffff", 
-      padding: "60px 0",
-      minHeight: "100vh"
-    }} id="contact">
+    <section style={{ backgroundColor: "#ffffff", padding: "60px 0", minHeight: "60vh"}} id="contact">
       <div className="container">
         <div className="row g-5">
           <div className="col-lg-6">
-            <motion.div 
-              initial="hidden"
-              animate="visible"
-              variants={containerVariants}
-              className="pe-lg-4"
-            >
-              <motion.h2 
-                variants={itemVariants}
-                className="mb-4"
-                style={{ 
-                  fontSize: '42px', 
+            <motion.div initial="hidden" animate={controls} variants={containerVariants} className="pe-lg-4" viewport={{ once: true, amount: 0.3 }}>
+              <motion.h2 variants={itemVariants} className="mb-4"
+                style={{ fontSize: '42px', 
                   fontWeight: '700', 
                   color: '#333'
                 }}
@@ -139,30 +146,33 @@ const Contact = () => {
               <motion.div 
                 variants={itemVariants}
                 className="contact-info mb-3"
+                whileHover={{ x: 5, transition: { duration: 0.2 } }}
               >
                 <h5 style={{ fontWeight: '600', color: '#333' }}>
                   <FaMapMarkerAlt size={18} style={{ color: '#faa307', marginRight: '10px' }} />
-                  4140 Parker Rd, Allentown, New Mexico 31134
+                    Production Office: Davao City Philippines
                 </h5>
               </motion.div>
               
               <motion.div 
                 variants={itemVariants}
                 className="contact-info mb-3"
+                whileHover={{ x: 5, transition: { duration: 0.2 } }}
               >
                 <h5 style={{ fontWeight: '600', color: '#333' }}>
                   <FaPhone size={18} style={{ color: '#faa307', marginRight: '10px' }} />
-                  1 (509) 598-0431
+                  +63-82-2820645
                 </h5>
               </motion.div>
               
               <motion.div 
                 variants={itemVariants}
                 className="contact-info mb-5"
+                whileHover={{ x: 5, transition: { duration: 0.2 } }}
               >
                 <h5 style={{ fontWeight: '600', color: '#333' }}>
                   <FaEnvelope size={18} style={{ color: '#faa307', marginRight: '10px' }} />
-                  themesflat@gmail.com
+                  reveriontech@gmail.com
                 </h5>
               </motion.div>
             </motion.div>
@@ -171,9 +181,10 @@ const Contact = () => {
           <div className="col-lg-6">
             <motion.div 
               className="card border-0 shadow"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              initial="hidden"
+              animate={controls}
+              variants={formVariants}
+              viewport={{ once: true, amount: 0.3 }}
               style={{
                 borderRadius: '15px',
                 padding: '35px',
@@ -182,16 +193,21 @@ const Contact = () => {
               }}
             >
               {formStatus.message && (
-                <div 
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
                   className={`alert ${formStatus.isSuccess ? 'alert-success' : 'alert-danger'} mb-4`}
                   style={{ fontSize: '14px' }}
                 >
                   {formStatus.message}
-                </div>
+                </motion.div>
               )}
               
               <form onSubmit={handleSubmit}>
-                <div className="mb-4">
+                <motion.div 
+                  className="mb-4"
+                  variants={itemVariants}
+                >
                   <label htmlFor="name" className="form-label" style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>Name</label>
                   <input 
                     type="text" 
@@ -208,10 +224,13 @@ const Contact = () => {
                       border: '1px solid #eee',
                     }}
                   />
-                </div>
+                </motion.div>
                 
                 <div className="row mb-4">
-                  <div className="col-md-6">
+                  <motion.div 
+                    className="col-md-6"
+                    variants={itemVariants}
+                  >
                     <label htmlFor="email" className="form-label" style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>Email</label>
                     <input 
                       type="email" 
@@ -220,7 +239,7 @@ const Contact = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="themesflat@gmail.com"
+                      placeholder="your.email@example.com"
                       style={{ 
                         padding: '12px 15px',
                         fontSize: '14px',
@@ -228,9 +247,12 @@ const Contact = () => {
                         border: '1px solid #eee',
                       }}
                     />
-                  </div>
+                  </motion.div>
                   
-                  <div className="col-md-6">
+                  <motion.div 
+                    className="col-md-6"
+                    variants={itemVariants}
+                  >
                     <label htmlFor="phone" className="form-label" style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>Phone Number</label>
                     <div className="input-group">
                       <span className="input-group-text" style={{ backgroundColor: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px 0 0 8px' }}>+1</span>
@@ -251,10 +273,13 @@ const Contact = () => {
                         }}
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 
-                <div className="mb-4">
+                <motion.div 
+                  className="mb-4"
+                  variants={itemVariants}
+                >
                   <label htmlFor="message" className="form-label" style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>Message</label>
                   <textarea 
                     className="form-control" 
@@ -272,18 +297,24 @@ const Contact = () => {
                       resize: 'none'
                     }}
                   ></textarea>
-                </div>
+                </motion.div>
                 
-                <div className="mb-4">
+                <motion.div 
+                  className="mb-4"
+                  variants={itemVariants}
+                >
                   <div className="form-check">
                     <input className="form-check-input" type="checkbox" id="rememberMe" style={{ backgroundColor: '#faa307', borderColor: '#faa307' }} />
                     <label className="form-check-label" htmlFor="rememberMe" style={{ fontSize: '14px', color: '#666', marginLeft: '5px' }}>
                       Remember me
                     </label>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div className="d-grid">
+                <motion.div 
+                  className="d-grid"
+                  variants={itemVariants}
+                >
                   <motion.button 
                     type="submit"
                     className="btn btn-lg"
@@ -298,13 +329,18 @@ const Contact = () => {
                       borderRadius: '8px',
                     }}
                     whileHover={{ 
+                      scale: 1.02,
                       backgroundColor: '#f99500',
                       boxShadow: '0 4px 10px rgba(250, 163, 7, 0.3)' 
                     }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    Submit
+                    {formStatus.isSubmitting ? 'Sending...' : 'Submit'}
+                    {!formStatus.isSubmitting && (
+                      <FaPaperPlane size={14} style={{ marginLeft: '8px' }} />
+                    )}
                   </motion.button>
-                </div>
+                </motion.div>
               </form>
             </motion.div>
           </div>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import Contact from '../components/sections/Contact';
 import HeaderContact from '../components/sections/HeaderContact';
+import SecondCta from '../components/sections/SecondCta';
 
 const ContactPage = () => {
   useEffect(() => {

@@ -488,51 +488,36 @@ const Navbar = () => {
                   Work
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="servicesDropdown">
-                  <li onMouseEnter={() => handleMouseEnter('offer')} onMouseLeave={handleMouseLeave}>
-                    {location.pathname === '/' ? (
-                      <a 
-                        className={`dropdown-item ${isActive('offer') ? 'active' : ''}`}
-                        href="#offer" 
-                        onClick={(e) => scrollToSection('offer', e)}
-                      >
-                        Services
-                      </a>
-                    ) : (
-                      <Link className="dropdown-item" to="/service">
-                        Services
-                      </Link>
-                    )}
-                  </li>
                   <li onMouseEnter={() => handleMouseEnter('about')} onMouseLeave={handleMouseLeave}>
-                    {location.pathname === '/' ? (
-                      <a 
-                        className={`dropdown-item ${isActive('about') ? 'active' : ''}`}
-                        href="#about" 
-                        onClick={(e) => scrollToSection('about', e)}
-                      >
-                        About us
-                      </a>
-                    ) : (
-                      <Link className="dropdown-item" to="/about">
-                        About us
-                      </Link>
-                    )}
-                  </li>
-                  <li onMouseEnter={() => handleMouseEnter('price')} onMouseLeave={handleMouseLeave}>
-                    {location.pathname === '/' ? (
-                      <a 
-                        className={`dropdown-item ${isActive('price') ? 'active' : ''}`}
-                        href="#price" 
-                        onClick={(e) => scrollToSection('price', e)}
-                      >
-                        Solutions
-                      </a>
-                    ) : (
-                      <Link className="dropdown-item" to="/pricing">
-                        Solutions
-                      </Link>
-                    )}
-                  </li>
+                      {location.pathname === '/' ? (
+                        <a 
+                          className={`dropdown-item ${isActive('about') ? 'active' : ''}`}
+                          href="#about" 
+                          onClick={(e) => scrollToSection('about', e)}
+                        >
+                          About us
+                        </a>
+                      ) : (
+                        <Link className="dropdown-item" to="/about">
+                          About us
+                        </Link>
+                      )}
+                    </li>
+                    <li onMouseEnter={() => handleMouseEnter('offer')} onMouseLeave={handleMouseLeave}>
+                      {location.pathname === '/' ? (
+                        <a 
+                          className={`dropdown-item ${isActive('offer') ? 'active' : ''}`}
+                          href="#offer" 
+                          onClick={(e) => scrollToSection('offer', e)}
+                        >
+                          Services
+                        </a>
+                      ) : (
+                        <Link className="dropdown-item" to="/service">
+                          Services
+                        </Link>
+                      )}
+                    </li>
                 </ul>
               </li>
               
@@ -600,20 +585,34 @@ const Navbar = () => {
                   </li>
                 </ul>
               </li>
+
+                  <li 
+                    className={`nav-item ${location.pathname === '/price' ? 'active' : (location.pathname === '/' && isActive('price') ? 'active' : '')}`}
+                    onMouseEnter={() => handleMouseEnter('price')}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {/* Use Link for direct navigation to Contact page */}
+                    <Link 
+                      className="nav-link custom-nav-link" 
+                      to="/price"
+                    >
+                      Solutions
+                    </Link>
+                  </li>
               
-              <li 
-                className={`nav-item ${location.pathname === '/contact' ? 'active' : (location.pathname === '/' && isActive('contact') ? 'active' : '')}`}
-                onMouseEnter={() => handleMouseEnter('contact')}
-                onMouseLeave={handleMouseLeave}
-              >
-                {/* Use Link for direct navigation to Contact page */}
-                <Link 
-                  className="nav-link custom-nav-link" 
-                  to="/contact"
-                >
-                  Contact
-                </Link>
-              </li>
+                  <li 
+                    className={`nav-item ${location.pathname === '/contact' ? 'active' : (location.pathname === '/' && isActive('contact') ? 'active' : '')}`}
+                    onMouseEnter={() => handleMouseEnter('contact')}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {/* Use Link for direct navigation to Contact page */}
+                    <Link 
+                      className="nav-link custom-nav-link" 
+                      to="/contact"
+                    >
+                      Contact
+                    </Link>
+                  </li>
               
             </ul>
             

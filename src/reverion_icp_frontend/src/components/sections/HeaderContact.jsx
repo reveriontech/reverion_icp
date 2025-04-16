@@ -1,56 +1,93 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const HeaderContact = () => {
+  // Animation variants
+  const headerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+    
   return (
-    <div 
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      variants={headerVariants}
       className="position-relative w-100 d-flex flex-column align-items-center justify-content-center overflow-hidden"
       style={{
         height: '40%', 
-        minHeight: '350px', // Increased minimum height for better presentation
+        minHeight: '350px',
         background: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url("/images/landpict2.jpg") no-repeat center center',
         backgroundSize: 'cover',
         position: 'relative',
         marginTop: '-10px',  
-        paddingTop: '70px' // Increased padding for better spacing
+        paddingTop: '70px'
       }}
     >
-      {/* Dark glow effect in the center */}
-      <div className="position-absolute" 
+      {/* Dark glow effect in the center with animation */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.4, scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+        className="position-absolute" 
         style={{ 
-          width: '350px', // Slightly larger glow
+          width: '350px',
           height: '350px', 
           backgroundColor: '#212325', 
           borderRadius: '50%',
-          filter: 'blur(120px)', // Increased blur for softer effect
-          opacity: '0.4', // Slightly increased opacity
+          filter: 'blur(120px)', 
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           zIndex: '0'
         }}
-      ></div>
+      ></motion.div>
       
       {/* Main content with improved spacing and typography */}
       <div className="container text-center position-relative" style={{ zIndex: '1' }}>
-        <h1 className="text-white fw-bold mb-3 display-3" style={{ 
-          letterSpacing: '0.5px',
-          textShadow: '0 2px 4px rgba(0,0,0,0.3)'
-        }}>Our Work</h1>
+        <motion.h1 
+          variants={itemVariants}
+          className="text-white mb-3 display-3" 
+          style={{ 
+            letterSpacing: '0.5px',
+            textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+            fontWeight: '700'
+          }}
+        >
+          Let's Talk!
+        </motion.h1>
         
-        <div className="mx-auto" style={{ width: '60px', height: '3px', backgroundColor: '#FCD581', marginBottom: '25px' }}></div>
-        
-        <p className="text-white text-center mx-auto px-4" style={{ 
-          maxWidth: '800px',
-          fontSize: '1.15rem',
-          lineHeight: '1.6',
-          opacity: '0.9',
-          textShadow: '0 1px 2px rgba(0,0,0,0.2)'
-        }}>
-          Providing Comprehensive and Tailored Solutions to Address Your Unique 
+        <motion.p 
+          variants={itemVariants}
+          className="text-white text-center mx-auto px-4" 
+          style={{ 
+            maxWidth: '800px',
+            fontSize: '1.15rem',
+            lineHeight: '1.6',
+            opacity: '0.9',
+            textShadow: '0 1px 2px rgba(0,0,0,0.2)'
+          }}
+        >
+          Providing Comprehensive and Tailored Solutions to Address Your Unique
           Business Challenges and Achieve Optimal Results.
-        </p>
+        </motion.p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
