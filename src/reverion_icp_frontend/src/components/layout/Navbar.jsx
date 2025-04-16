@@ -357,7 +357,7 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   
   const getBackgroundColor = () => {
-    return isMobile ? '#353535' : (isSticky ? '#ffffff' : 'transparent');
+    return isMobile ? '#353535' : (isSticky ? '#ffffff' : '#212325');
   };
   
   // Add className to help with CSS targeting
