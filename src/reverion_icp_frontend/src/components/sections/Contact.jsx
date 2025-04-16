@@ -185,7 +185,7 @@ const Contact = () => {
                     <FaMapMarkerAlt size={16} style={{ color: 'white' }} />
                   </div>
                   <div>
-                    <h5 style={{ fontSize: '13px', fontWeight: '700', color: '#333', margin: '0 0 2px 0', letterSpacing: '0.5px' }}>Production Office</h5>
+                    <h5 style={{ fontSize: '13px', fontWeight: '700', color: '#333', margin: '0 0 2px 0', letterSpacing: '0.5px' }}>PRODUCTION OFFICE</h5>
                     <p style={{ fontSize: '12px', color: '#666', margin: '0 0 1px 0', lineHeight: '1.3' }}>Davao City Philippines</p>
                   </div>
                 </div>
