@@ -1,0 +1,415 @@
+/* Base navbar styles */
+.navbar-custom .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar-custom .navbar-brand {
+    flex: 0 0 auto;
+  }
+  
+  .navbar-custom .navbar-collapse {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar-custom .navbar-nav {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .navbar-custom .button--form {
+    flex: 0 0 auto;
+    margin-left: 20px;
+  }
+  
+  /* Enhanced navbar animation */
+  .navbar-custom {
+    transition: all 0.3s ease;
+  }
+  
+  .menu-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-custom.sticky .menu-icon {
+    color: #353535;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .navbar-toggler:hover .menu-icon {
+    transform: rotate(90deg);
+  }
+  
+  /* Enhanced dropdown styles */
+  @media (min-width: 768px) {
+    .dropdown {
+      position: relative;
+    }
+    
+    /* New fade-in-scale effect */
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      visibility: visible;
+    }
+    
+    .dropdown-menu {
+      margin-top: 10px;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      background-color: rgba(53, 53, 53, 0.95) !important; /* Semi-transparent dark */
+      transition: all 0.35s cubic-bezier(0.35, 0, 0.25, 1);
+      padding: 12px 8px;
+      min-width: 200px;
+      backdrop-filter: blur(5px); /* Glass effect */
+      
+      /* Animation properties - scale effect */
+      opacity: 0;
+      transform: translateY(12px) scale(0.95);
+      transform-origin: top center;
+      visibility: hidden;
+      display: block;
+    }
+    
+    /* Modern dropdown arrow with glow */
+    .dropdown-menu:before {
+      content: '';
+      position: absolute;
+      top: -7px;
+      left: 20px;
+      width: 14px;
+      height: 14px;
+      background-color: rgba(53, 53, 53, 0.95);
+      transform: rotate(45deg);
+      box-shadow: 0 0 10px rgba(252, 213, 129, 0.1);
+      z-index: -1;
+    }
+    
+    .dropdown-item {
+      color: #ffffff !important;
+      padding: 12px 20px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 4px 0;
+      border-radius: 8px;
+    }
+    
+    /* Modern hover effects with slide transition */
+    .dropdown-item:hover {
+      background-color: rgba(69, 69, 69, 0.7);
+      color: #FCD581 !important;
+      transform: translateX(5px);
+    }
+    
+    /* Add elegant hover indicator with animation */
+    .dropdown-item:after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 2px;
+      background-color: #FCD581;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-item:hover:after {
+      opacity: 1;
+      width: 6px;
+    }
+    
+    .dropdown-item.active {
+      background-color: rgba(69, 69, 69, 0.7);
+      color: #FCD581 !important;
+      transform: translateX(5px);
+    }
+    
+    .dropdown-item.active:after {
+      opacity: 1;
+      width: 6px;
+    }
+    
+    /* Subtle separator between items */
+    .dropdown-menu li:not(:last-child) {
+      position: relative;
+    }
+    
+    .dropdown-menu li:not(:last-child):after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+      margin: 2px 10px;
+    }
+    
+    /* Parent nav item styling */
+    .nav-item.dropdown.active .dropdown-toggle {
+      color: #FCD581 !important;
+      border-bottom: 2px solid #FCD581;
+      padding-bottom: 2px;
+    }
+    
+    .nav-item.dropdown:hover .dropdown-toggle {
+      color: #FCD581 !important;
+      border-bottom: 2px solid #FCD581;
+      padding-bottom: 2px;
+    }
+    
+    /* Animated dropdown arrow indicator */
+    .nav-link.dropdown-toggle:after {
+      display: inline-block;
+      margin-left: 6px;
+      vertical-align: middle;
+      content: "";
+      border-top: 5px solid;
+      border-right: 5px solid transparent;
+      border-bottom: 0;
+      border-left: 5px solid transparent;
+      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    
+    .nav-item.dropdown:hover .nav-link.dropdown-toggle:after {
+      transform: rotate(180deg);
+    }
+    
+    .nav-item.active .nav-link {
+      color: #FCD581 !important;
+      border-bottom: 2px solid #FCD581;
+      padding-bottom: 2px;
+    }
+    
+    .nav-item .nav-link:hover {
+      color: #FCD581 !important;
+      border-bottom: 2px solid #FCD581;
+      padding-bottom: 2px;
+    }
+    
+    /* Contrast fix for better visibility */
+    .navbar-custom:not(.sticky) .navbar-nav .nav-link.custom-nav-link {
+      color: #ffffff !important;
+    }
+    
+    .navbar-custom.sticky .navbar-nav .nav-link.custom-nav-link {
+      color: #535353 !important;
+    }
+    
+    /* Active state overrides sticky text color */
+    .navbar-custom.sticky .navbar-nav .nav-item.active .nav-link.custom-nav-link,
+    .navbar-custom.sticky .navbar-nav .nav-item:hover .nav-link.custom-nav-link {
+      color: #FCD581 !important;
+    }
+    
+    /* Ensure dropdowns always maintain dark background */
+    .navbar-custom .dropdown-menu {
+      background-color: rgba(53, 53, 53, 0.95) !important;
+    }
+    
+    /* Ensure dropdown items are always white */
+    .navbar-custom .dropdown-item {
+      color: #ffffff !important;
+    }
+  
+    /* Button styles */
+    .button--form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .button--form .login--button,
+    .button--form .sign--button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  
+    .button--form .login--button {
+      background-color: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  
+    .button--form .login--button:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+  
+    .button--form .login--button.sticky {
+      color: #353535;
+      border: 1px solid rgba(53, 53, 53, 0.3);
+    }
+  
+    .button--form .login--button.sticky:hover {
+      background-color: rgba(53, 53, 53, 0.1);
+      border-color: rgba(53, 53, 53, 0.6);
+    }
+  
+    .button--form .sign--button {
+      background-color: #FCD581;
+      color: #353535;
+      border: 1px solid #FCD581;
+    }
+  
+    .button--form .sign--button:hover {
+      background-color: #e9c067;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(252, 213, 129, 0.3);
+    }
+  }
+  
+  /* Mobile dropdown styling with enhanced animations */
+  @media (max-width: 767px) {
+    .navbar-custom {
+      background-color: #353535 !important;
+    }
+    
+    .navbar-nav .nav-link.custom-nav-link {
+      color: #ffffff !important;
+    }
+    
+    .nav-item.active .nav-link {
+      color: #FCD581 !important;
+      border-bottom: 2px solid #FCD581;
+      padding-bottom: 2px;
+    }
+    
+    /* Mobile dropdown styling */
+    .dropdown-menu {
+      background-color: rgba(69, 69, 69, 0.8) !important;
+      border: none;
+      margin-left: 1rem;
+      border-left: 2px solid #FCD581;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+    
+    .dropdown-menu.show {
+      max-height: 300px;
+      padding: 8px 0;
+    }
+    
+    .dropdown-item {
+      padding-left: 15px;
+      color: #ffffff !important;
+      transition: all 0.3s ease;
+      transform: translateX(-10px);
+      opacity: 0;
+    }
+    
+    .dropdown-menu.show .dropdown-item {
+      transform: translateX(0);
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+    
+    .dropdown-menu.show .dropdown-item:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    
+    .dropdown-menu.show .dropdown-item:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+    
+    .dropdown-item:hover, 
+    .dropdown-item.active {
+      background-color: rgba(85, 85, 85, 0.8);
+      color: #FCD581 !important;
+      padding-left: 20px;
+    }
+    
+    /* Improved mobile navigation */
+    .navbar-collapse {
+      background-color: #353535;
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .navbar-nav {
+      gap: 8px;
+    }
+    
+    .nav-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+    }
+    
+    .navbar-collapse.show .nav-item {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .navbar-collapse.show .nav-item:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    
+    .navbar-collapse.show .nav-item:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+    
+    .navbar-collapse.show .nav-item:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+    
+    .navbar-collapse.show .nav-item:nth-child(4) {
+      transition-delay: 0.25s;
+    }
+    
+    /* Mobile button styles */
+    .button--form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-top: 15px;
+    }
+    
+    .button--form .login--button,
+    .button--form .sign--button {
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .button--form .login--button {
+      background-color: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .button--form .sign--button {
+      background-color: #FCD581;
+      color: #353535;
+      border: none;
+    }
+  }
+
+    
+    /* Mobile dropdown styling with slide effect */

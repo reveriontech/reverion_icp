@@ -1,0 +1,148 @@
+/* Add these styles to your task.css file */
+
+/* Common style for all option buttons in the modal */
+.task-option-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: #595959;
+  }
+  
+  .task-option-btn:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .task-option-btn.active {
+    background-color: #e6f7ff !important;
+    border-color: #1890ff !important;
+    color: #1890ff !important;
+    font-weight: 500;
+  }
+  
+  /* Status-specific colors */
+  .task-option-btn.status-complete {
+    color: #52c41a;
+    border-color: #52c41a;
+  }
+  
+  .task-option-btn.status-progress {
+    color: #faad14;
+    border-color: #faad14;
+  }
+  
+  .task-option-btn.status-todo {
+    color: #595959;
+    border-color: #d9d9d9;
+  }
+  
+  /* Active state overrides the status colors */
+  .task-option-btn.active.status-complete,
+  .task-option-btn.active.status-progress,
+  .task-option-btn.active.status-todo {
+    background-color: #e6f7ff !important;
+    border-color: #1890ff !important;
+    color: #1890ff !important;
+  }
+  
+  /* Wrapper styles for component buttons */
+  .task-date-wrapper,
+  .task-priority-wrapper {
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    display: inline-block;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background-color: white;
+  }
+  
+  .task-date-wrapper:hover,
+  .task-priority-wrapper:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .task-date-wrapper.active,
+  .task-priority-wrapper.active {
+    background-color: #e6f7ff !important;
+    border-color: #1890ff !important;
+  }
+  
+  /* Task options container */
+  .task-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+    align-items: center;
+  }
+  
+  /* Icon styles */
+  .task-option-icon {
+    font-size: 16px;
+  }
+  
+  /* Modal styling for a cleaner interface */
+  .task-modal {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .task-modal-section {
+    padding: 16px;
+  }
+  
+  /* Ensure the task name input has consistent styling */
+  .task-name-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  
+  .task-name-input:focus {
+    outline: none;
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  
+  /* Description textarea styling */
+  .task-description-textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 80px;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .task-description-textarea:focus {
+    outline: none;
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  
+  /* Style for dropdown position */
+  .status-options-dropdown {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 240px;
+    z-index: 100;
+    margin-top: 4px;
+  }

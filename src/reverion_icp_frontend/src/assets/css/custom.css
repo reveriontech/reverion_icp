@@ -1,0 +1,464 @@
+/* Custom CSS styles for ReverionTech dashboard */
+
+/* Import Bootstrap Icons */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+:root {
+  --primary-color: #ffae00;
+  --primary-dark: #a57100;
+  --primary-light: #ffca50;
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 70px;
+  --header-height: 70px;
+  --content-transition: all 0.3s ease;
+}
+
+/* Apply custom theme colors */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-primary-subtle {
+  background-color: rgba(251, 196, 79, 0.15) !important;
+}
+
+.nav-pills .nav-link.active, 
+.nav-pills .show > .nav-link,
+.list-group-item.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.progress-bar {
+  background-color: var(--primary-color);
+}
+
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+/* Layout Structure */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+}
+
+.portal-wrapper {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: #ffffff;
+  border-right: 1px solid #e9ecef;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: var(--content-transition);
+  z-index: 1030; /* Above Bootstrap navbar */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.logo-text h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.logo-text small {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.credits-info {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 0 1rem;
+}
+
+.credits-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.credit-value {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.sidebar-nav {
+  margin-top: 1.5rem;
+}
+
+.sidenav-item {
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6c757d;
+  border-left: 3px solid transparent;
+}
+
+.sidenav-item:hover {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.sidenav-item.active {
+  background-color: #f8f9fa;
+  color: var(--primary-color);
+  border-left: 3px solid var(--primary-color);
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: #6c757d;
+}
+
+.logout-btn:hover {
+  background-color: #f8f9fa;
+  color: #dc3545;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  transition: var(--content-transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.content-header {
+  height: var(--header-height);
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  width: 100%;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 1.5rem 0;
+  overflow-y: auto;
+}
+
+/* Card Customizations */
+.card {
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  padding: 1rem 1.25rem;
+  background-color: transparent;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* Progress Circle */
+.progress-circle {
+  position: relative;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary-color) 0% 70%, #e9ecef 70% 100%);
+}
+
+.progress-circle::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: white;
+  border-radius: 50%;
+}
+
+.progress-circle.purple {
+  background: conic-gradient(#6f42c1 0% 75%, #e9ecef 75% 100%);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1040;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Table */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199.98px) {
+  .sidebar {
+    width: var(--sidebar-collapsed-width);
+  }
+  
+  .sidebar .logo-text,
+  .sidebar .credits-remaining,
+  .sidebar .credits-title,
+  .sidebar .nav-item span,
+  .sidebar .logout-btn span {
+    display: none;
+  }
+  
+  .sidebar .logo {
+    justify-content: center;
+  }
+  
+  .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+  
+  .sidenav-item, .logout-btn {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+  
+  .credits-info {
+    display: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .team-stats .card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: var(--sidebar-width);
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  
+  .sidebar .logo-text,
+  .sidebar .credits-info,
+  .sidebar .sidenav-item span,
+  .sidebar .logout-btn span {
+    display: block;
+  }
+  
+  .sidenav-item, .logout-btn {
+    justify-content: flex-start;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .content-header {
+    padding-left: 60px;
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1025;
+  }
+  
+  .overlay.show {
+    display: block;
+  }
+  
+  /* Responsive adjustments for sidebar and menu button */
+  @media (min-width: 768px) and (max-width: 1920px) {
+    .mobile-menu-toggle {
+      display: block;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1050;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border: none;
+      transition: left 0.3s ease;
+    }
+    
+    .sidebar {
+      position: fixed;
+      left: -280px;
+      transition: left 0.3s ease;
+      width: 260px;
+    }
+    
+    .sidebar.show {
+      left: 0;
+    }
+    
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+      transition: margin-left 0.3s ease;
+    }
+    
+    .sidebar.show + .main-content {
+      margin-left: 0;
+    }
+    
+    .sidebar.show ~ .mobile-menu-toggle {
+      left: 280px;
+    }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1040;
+      display: none;
+    }
+    
+    .overlay.show {
+      display: block;
+    }
+  }
+  
+  /* For extra large screens (1921px and above), always show sidebar */
+  @media (min-width: 1921px) {
+    .sidebar {
+      left: 0;
+    }
+    
+    .main-content {
+      margin-left: 280px;
+    }
+    
+    .mobile-menu-toggle {
+      display: none;
+    }
+  }
+}

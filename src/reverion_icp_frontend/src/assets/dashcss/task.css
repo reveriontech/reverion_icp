@@ -1,0 +1,1754 @@
+/* Empty state styles */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+
+.empty-state-message {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.empty-state-description {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.empty-state-button {
+  background-color: #5e6ad2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.empty-state-button:hover {
+  background-color: #4a57c0;
+}/* Main container */
+.tasks-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  color: #333;
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Header styles */
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.project-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tasks-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-task-button {
+  background-color: #5e6ad2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  gap: 5px;
+}
+
+.add-task-button:hover {
+  background-color: #4a57c0;
+}
+
+/* Task section styles */
+.task-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+}
+
+.section-title {
+  display: flex;
+}
+
+
+.section-name {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #e5e7eb;
+  color: #4b5563;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 6px;
+}
+.section-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-add-task {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.section-add-task:hover {
+  color: #333;
+}
+
+.section-toggle {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+/* Table styles */
+.section-content {
+  padding: 0;
+}
+
+.task-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.task-table thead {
+  background-color: #f9fafb;
+}
+
+.task-table th {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-table {
+  width: 100%;
+  table-layout: fixed; /* This is crucial for fixed column widths */
+  border-collapse: collapse;
+}
+
+.task-table th, .task-table td {
+  padding: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Define specific widths for each column */
+.task-table th:nth-child(1),
+.task-table td:nth-child(1) {
+  width: 30%;
+}
+
+.task-table th:nth-child(2),
+.task-table td:nth-child(2) {
+  width: 12%;
+}
+
+.task-table th:nth-child(3),
+.task-table td:nth-child(3) {
+  width: 15%;
+}
+.task-table th:nth-child(4),
+.task-table td:nth-child(4) {
+  width: 15%; /* Priority column */
+}
+
+.task-table th:nth-child(5),
+.task-table td:nth-child(5) {
+  width: 15%; /* Status column */
+}
+
+.task-table th:nth-child(6),
+.task-table td:nth-child(6) {
+  width: 13%;
+}
+
+.task-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Row hover effect */
+.task-table tr.task-row:hover {
+  background-color: #f9fafb;
+}
+
+.task-table tr:last-child td {
+  border-bottom: none;
+}
+
+.task-name-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.task-name-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+/* You can add a tooltip for long names */
+.task-name-tooltip {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.task-name-tooltip:hover .task-name-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.task-name-tooltip-text {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: normal;
+  max-width: 200px;
+}
+
+
+.assignee-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #673ab7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.task-date, .task-priority {
+  color: #666;
+  font-size: 13px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+.complete-status .status-badge {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-color: #c8e6c9;
+}
+
+.progress-status .status-badge {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  border-color: #bbdefb;
+}
+
+.todo-status .status-badge {
+  background-color: #f5f5f5;
+  color: #616161;
+  border-color: #e0e0e0;
+}
+
+.comments-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  font-size: 13px;
+}
+
+.section-footer {
+  padding: 8px 16px;
+  background-color: #f9fafb;
+  border-top: 1px solid #f3f4f6;
+}
+.section-add-task-footer {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.section-add-task-footer:hover {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.no-tasks-message {
+  text-align: center;
+  padding: 30px 0;
+  color: #999;
+  font-style: italic;
+}
+
+/* Status dropdown styles */
+.status-dropdown {
+  position: absolute !important;
+  width: 250px !important;
+  background-color: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  z-index: 10 !important;
+  margin-top: 5px !important;
+  overflow: hidden !important;
+  border: 1px solid #eee !important;
+}
+
+.status-dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: #f5f5f5;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+
+.status-dropdown-search {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.status-dropdown-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.status-dropdown-options {
+  max-height: 300px;
+  overflow-y: auto !important;
+}
+
+.status-dropdown-group {
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.status-dropdown-group-label {
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #999;
+  background-color: #f9f9f9;
+}
+
+.status-dropdown-option {
+  display: flex !important;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  position: relative !important;
+}
+
+.status-dropdown-option:hover {
+  background-color: #f5f5f5;
+}
+
+.status-dropdown-option.selected {
+  background-color: #f0f0f0;
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  color: white;
+  font-size: 10px;
+}
+
+.todo-icon {
+  background-color: #9e9e9e;
+}
+
+.progress-icon {
+  background-color: #2196f3;
+}
+
+.complete-icon {
+  background-color: #4caf50;
+}
+
+.checkmark {
+  position: absolute;
+  right: 16px;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Task Modal Styles (New Design) */
+.task-modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 650px;
+  max-width: 95%;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.task-modal-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.task-modal-tab {
+  padding: 14px 20px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+  position: relative;
+}
+
+.task-modal-tab.active {
+  color: #5e6ad2;
+  font-weight: 500;
+}
+
+.task-modal-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #5e6ad2;
+}
+
+.task-modal-actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  height: 100%;
+}
+
+.task-modal-action {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 0 12px;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.task-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  padding: 0 15px;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.task-modal-section {
+  padding: 16px 24px;
+  flex-grow: 1;
+}
+
+.task-project-selector {
+  display: flex;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.task-project-btn, .task-type-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+}
+
+.task-type-icon {
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-type-text {
+  font-weight: 500;
+}
+
+
+.task-project-icon, .task-type-icon {
+  font-size: 12px;
+  color: #777;
+}
+
+.task-type-arrow {
+  font-size: 10px;
+  color: #888;
+}
+
+.task-project-arrow, .task-type-arrow {
+  font-size: 10px;
+  color: #999;
+}
+
+/* Task name input styles */
+.task-name-input-container {
+margin-bottom: 16px;
+position: relative;
+cursor: text;
+}
+
+.task-name-heading {
+font-size: 18px;
+font-weight: 500;
+color: #333;
+margin: 0 0 8px 0;
+}
+
+.task-name-placeholder {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  padding: 8px 0;
+  cursor: text;
+  border-bottom: 2px solid transparent;
+}
+
+.task-name-placeholder:hover {
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.task-name-input {
+  width: 100%;
+  font-size: 14px;
+  color: #666;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid transparent;
+  outline: none;
+  background: transparent;
+}  
+
+.task-name-input:focus {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.task-name-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.task-description-container {
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.task-description-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #666;
+  font-size: 14px;
+}
+
+.task-description-placeholder:hover {
+  background-color: #f5f5f5;
+}
+
+.task-description-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+}
+
+.task-description-textarea:focus {
+  border-color: #6355FF;
+}
+
+.task-description-btn, .task-ai-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 4px;
+  color: #666;
+  cursor: pointer;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.task-description-icon, .task-ai-icon {
+  font-size: 16px;
+  color: #888;
+}
+
+.task-description-icon {
+  font-size: 16px;
+  color: #888;
+}
+
+.task-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+  align-items: center;
+}
+
+.task-status {
+  margin-right: 4px;
+}
+
+.attachment-icon {
+  font-size: 16px;
+}
+
+.task-status-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e9ecef;
+  color: #555;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.task-status-badge-todo {
+  background-color: #e9ecef;
+  color: #555;
+}
+
+.task-status-badge-progress {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.task-status-badge-complete {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-options-dropdown {
+  position: absolute !important;
+  width: 250px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 20 !important;
+  margin-top: -100px !important;
+  margin-left: 100px;
+  overflow: hidden !important;
+  border: 1px solid #eee;
+}
+
+.task-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.task-option-icon {
+  font-size: 14px;
+}
+
+.task-option-more {
+  font-weight: bold;
+}
+
+.task-custom-fields {
+  margin-top: 24px;
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.task-custom-header {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.task-custom-content {
+  display: flex;
+  gap: 10px;
+}
+
+.task-show-fields-btn {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.task-new-field-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #5e6ad2;
+  cursor: pointer;
+}
+
+.task-modal-footer {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding: 16px 24px;
+  border-top: 1px solid #eee;
+  background-color: #f9f9f9;
+}
+
+.task-templates-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.task-footer-right {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  gap: 12px;
+}
+
+.task-attachment-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #888;
+  cursor: pointer;
+}
+
+.task-comment-count {
+  background-color: #f0f0f0;
+  color: #666;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.task-create-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #5e6ad2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.task-create-btn:disabled {
+  background-color: #b4b9ed;
+  cursor: not-allowed;
+}
+
+.task-create-arrow {
+  font-size: 10px;
+}
+
+/* Priority dropdown styles */
+.priority-container {
+position: relative;
+display: inline-block;
+}
+
+.priority-dropdown {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1000;
+background-color: white;
+border-radius: 6px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+width: 200px;
+border: 1px solid #e0e0e0;
+margin-top: 5px;
+overflow: hidden;
+transform: scale(0.9);
+}
+
+.priority-option {
+display: flex;
+align-items: center;
+padding: 8px 16px;
+cursor: pointer;
+font-size: 14px;
+color: #333;
+height: 36px;
+}
+
+.priority-option:hover {
+background-color: #f5f7f9;
+}
+
+.priority-flag {
+margin-right: 10px;
+font-size: 14px;
+}
+
+.priority-label {
+flex-grow: 1;
+}
+
+.priority-clear {
+color: #888;
+margin-right: 10px;
+font-size: 14px;
+}
+
+.priority-urgent {
+color: #d50000;
+}
+
+.priority-high {
+color: #ff9800;
+}
+
+.priority-normal {
+color: #2196f3;
+}
+
+.priority-low {
+color: #9e9e9e;
+}
+
+.due-date-calendar-day {
+height: 32px !important;
+width: 32px !important;
+}
+
+.due-date-calendar-day.current-day {
+background-color: #e53935;  /* Red color as shown in the image */
+color: white;
+}
+
+.due-date-calendar-days {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+grid-gap: 4px;
+text-align: center;
+padding: 4px;
+}
+
+.due-date-preset:hover {
+background-color: #f5f7f9;
+}
+
+.due-date-preset {
+padding: 8px 16px;
+display: flex;
+justify-content: space-between;
+cursor: pointer;
+font-size: 14px;
+color: #333;
+height: 36px;
+align-items: center;
+}
+
+/* Ensure the date picker dropdown is properly positioned */
+.date-picker-dropdown {
+position: absolute;
+top: 100%;
+left: 0; /* Change from right: 0 to left: 0 */
+z-index: 1000;
+background-color: white;
+border-radius: 6px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+width: 520px;
+border: 1px solid #e0e0e0;
+margin-top: 5px;
+display: block; /* Ensure it's displayed as a block */
+opacity: 1; /* Ensure full opacity */
+visibility: visible; /* Ensure visibility */
+}
+
+.due-date-calendar-day {
+height: 28px;
+width: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+border-radius: 50%;
+font-size: 13px;
+margin: 0 auto;
+}
+
+.due-date-calendar-day:hover {
+background-color: #f0f0f5;
+}
+
+.due-date-calendar-day.current-day {
+background-color: #6355FF;
+color: white;
+}
+
+.due-date-calendar-day.empty-day {
+cursor: default;
+}
+
+/* Styles for enhanced date picker with recurring options */
+
+/* Search field styling */
+.due-date-search {
+padding: 8px 12px;
+border-bottom: 1px solid #eee;
+}
+
+.due-date-search input {
+width: 100%;
+padding: 8px 12px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 13px;
+}
+
+/* Tab icons */
+.due-date-tab-icon {
+display: inline-block;
+margin-right: 6px;
+font-size: 14px;
+}
+
+/* Recurring option styling */
+.due-date-preset-recurring {
+border-top: 1px solid #eee;
+margin-top: 8px;
+padding-top: 12px;
+}
+
+.due-date-recurring {
+font-size: 16px;
+color: #666;
+}
+
+/* Layout for date picker with recurring options */
+.date-picker-content {
+display: flex;
+width: 100%;
+}
+
+/* Recurring options panel */
+.due-date-recurring-panel {
+width: 200px;
+padding: 16px;
+border-right: 1px solid #eee;
+}
+
+.due-date-recurring-options {
+width: 100%;
+}
+
+.due-date-recurring-header {
+display: flex;
+justify-content: space-between;
+margin-bottom: 16px;
+font-weight: 500;
+color: #333;
+}
+
+.due-date-recurring-actions {
+display: flex;
+gap: 12px;
+color: #666;
+}
+
+.due-date-recurring-refresh,
+.due-date-recurring-menu {
+cursor: pointer;
+font-size: 16px;
+}
+
+.due-date-recurring-selector {
+margin-bottom: 16px;
+position: relative;
+}
+
+/* Custom dropdown styling */
+.due-date-dropdown-button {
+width: 100%;
+padding: 8px 10px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 14px;
+color: #333;
+background-color: white;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.dropdown-arrow {
+font-size: 10px;
+color: #888;
+}
+
+.dropdown-options {
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+background-color: white;
+border: 1px solid #ddd;
+border-radius: 4px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+z-index: 10;
+margin-top: 2px;
+max-height: 200px;
+overflow-y: auto;
+}
+
+.dropdown-option {
+padding: 8px 10px;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.dropdown-option:hover {
+background-color: #f5f5f5;
+}
+
+.dropdown-option.selected {
+background-color: #f0f0f5;
+}
+
+.dropdown-check {
+color: #6355FF;
+font-weight: bold;
+}
+
+.due-date-recurring-checkbox {
+margin-bottom: 12px;
+display: flex;
+align-items: center;
+}
+
+.due-date-recurring-checkbox input[type="checkbox"] {
+margin-right: 8px;
+}
+
+.recur-forever {
+color: #6355FF;
+}
+
+.recur-forever-checkbox {
+accent-color: #6355FF;
+}
+
+.due-date-recurring-footer {
+display: flex;
+justify-content: flex-end;
+gap: 12px;
+margin-top: 24px;
+}
+
+.due-date-recurring-cancel {
+background: none;
+border: none;
+padding: 8px 16px;
+font-size: 14px;
+cursor: pointer;
+color: #666;
+}
+
+.due-date-recurring-save {
+background-color: #6355FF;
+color: white;
+border: none;
+border-radius: 4px;
+padding: 8px 16px;
+font-size: 14px;
+font-weight: 500;
+cursor: pointer;
+}
+
+/* Other month day styling */
+.due-date-calendar-day.other-month-day {
+color: #ccc;
+}
+
+/* Selected day styling */
+.due-date-calendar-day.selected-day {
+background-color: #6355FF;
+color: white;
+}
+
+/* Make presets scrollable if too many */
+.due-date-presets {
+width: 200px;
+border-right: 1px solid #eee;
+overflow-y: auto;
+max-height: 350px;
+}
+
+/* Calendar adjustments for recurring view */
+.due-date-calendar {
+flex: 1;
+padding: 16px;
+}
+
+/* Empty search results styling */
+
+/* Priority dropdown styles */
+.priority-container {
+position: relative;
+display: inline-block;
+}
+
+.priority-dropdown {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1000;
+background-color: white;
+border-radius: 6px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+width: 200px;
+border: 1px solid #e0e0e0;
+margin-top: -145px;
+margin-left: 80px;
+overflow: hidden;
+transform: scale(1.1);
+}
+
+.priority-option {
+display: flex;
+align-items: center;
+padding: 8px 16px;
+cursor: pointer;
+font-size: 14px;
+color: #333;
+height: 36px;
+}
+
+.priority-option:hover {
+background-color: #f5f7f9;
+}
+
+.priority-flag {
+margin-right: 10px;
+font-size: 14px;
+}
+
+.priority-label {
+flex-grow: 1;
+}
+
+.priority-clear {
+color: #888;
+margin-right: 10px;
+font-size: 14px;
+}
+
+.priority-urgent {
+color: #d50000;
+}
+
+.priority-high {
+color: #ff9800;
+}
+
+.priority-normal {
+color: #2196f3;
+}
+
+.priority-low {
+color: #9e9e9e;
+}
+
+/* Task option button styling */
+.task-option-btn {
+display: flex;
+align-items: center;
+gap: 6px;
+background: none;
+border: 1px solid #e0e0e0;
+border-radius: 4px;
+padding: 6px 10px;
+font-size: 13px;
+color: #666;
+cursor: pointer;
+height: 32px;
+}
+
+.task-option-btn:hover {
+background-color: #f5f5f5;
+}
+
+.task-option-icon {
+font-size: 14px;
+}
+
+/* Fixed date picker styles to ensure proper positioning */
+.date-picker-container {
+position: relative;
+display: inline-block;
+margin-left: 0; /* Remove the fixed margin causing positioning issues */
+
+}
+
+.date-picker-dropdown {
+position: fixed !important; /* Use fixed instead of absolute */
+z-index: 9999 !important; /* Very high z-index to ensure it's on top */
+width: 520px !important;
+max-width: 90vw !important; /* Prevent overflow on small screens */
+margin-top: -20px !important;
+background-color: #ffffff !important;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+border-radius: 8px !important;
+border: 1px solid #e0e0e0 !important;
+/* Ensure content is visible */
+overflow: visible !important;
+height: auto !important;
+transform: scale(0.9) !important;
+}
+
+/* Ensure the calendar navigation elements are properly positioned */
+.calendar-nav-arrows {
+display: flex;
+gap: 8px;
+position: relative; /* Ensure proper stacking */
+z-index: 1051;
+}
+
+.calendar-nav-arrow {
+width: 24px;
+height: 24px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 4px;
+background-color: #f5f5f5;
+color: #555;
+cursor: pointer;
+font-size: 12px;
+}
+
+/* Ensure the full calendar view is visible */
+.due-date-picker {
+position: relative;
+z-index: auto;
+max-height: none; /* Remove any max-height constraints */
+}
+
+/* Reset any problematic constraints */
+.due-date-picker,
+.date-picker-content,
+.due-date-calendar,
+.due-date-calendar-days {
+max-height: none !important;
+overflow: visible !important;
+}
+
+.due-date-tabs,
+.date-picker-content,
+.due-date-presets,
+.due-date-calendar,
+.due-date-calendar-days,
+.due-date-calendar-weekdays,
+.due-date-calendar-header,
+.calendar-today-selector {
+position: relative;
+z-index: auto; /* Let the natural stacking context work */
+}
+
+/* Ensure calendar content is fully visible */
+.date-picker-content {
+display: flex;
+max-height: none; /* Remove any height constraints */
+overflow: visible;
+}
+
+/* Reset media queries that may be causing positioning issues */
+@media (max-width: 1024px) {
+.date-picker-container {
+  margin-left: 0;
+}
+
+.date-picker-dropdown {
+  transform: none;
+  top: calc(100% + 5px);
+  left: 0;
+}
+}
+
+.task-type-dropdown,
+.status-options-dropdown,
+.date-picker-dropdown,
+.priority-dropdown {
+z-index: 1002;
+background-color: white; /* Ensure solid background */
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Strong shadow for depth */
+}
+
+.due-date-tabs {
+display: flex;
+border-bottom: 1px solid #eee;
+}
+
+.due-date-tab {
+padding: 12px 16px;
+cursor: pointer;
+font-size: 14px;
+color: #555;
+position: relative;
+flex: 1;
+text-align: center;
+}
+
+.due-date-tab.active {
+color: #6355FF;
+font-weight: 500;
+}
+
+.due-date-tab.active::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: #6355FF;
+}
+
+.date-picker-content {
+display: flex;
+}
+
+.due-date-presets {
+width: 200px;
+border-right: 1px solid #eee;
+max-height: 400px;
+overflow-y: auto;
+}
+
+.due-date-preset {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 16px;
+cursor: pointer;
+font-size: 14px;
+color: #333;
+}
+
+.due-date-preset:hover {
+background-color: #f5f7f9;
+}
+
+.due-date-day {
+color: #888;
+font-size: 13px;
+}
+
+.due-date-recurring {
+color: #888;
+font-size: 16px;
+}
+
+.due-date-calendar {
+flex: 1;
+padding: 16px;
+}
+
+.due-date-calendar-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 16px;
+}
+
+.month-year-display {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 15px;
+font-weight: 500;
+color: #333;
+}
+
+.month-dropdown-arrow {
+font-size: 10px;
+color: #888;
+}
+
+.calendar-today-selector {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.today-text {
+font-size: 14px;
+color: #6355FF;
+cursor: pointer;
+}
+
+.calendar-nav-arrows {
+position: static !important;
+z-index: auto !important;
+}
+
+.calendar-nav-arrow {
+width: 24px;
+height: 24px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 4px;
+background-color: #f5f5f5;
+color: #555;
+cursor: pointer;
+font-size: 12px;
+}
+
+.calendar-nav-arrow:hover {
+background-color: #e0e0e0;
+}
+
+.due-date-calendar-weekdays {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+text-align: center;
+margin-bottom: 8px;
+}
+
+.due-date-calendar-weekdays div {
+font-size: 12px;
+color: #888;
+padding: 4px 0;
+}
+
+/* Ensure grid is properly spaced */
+.due-date-calendar-days {
+grid-template-columns: repeat(7, 1fr) !important;
+grid-gap: 4px !important;
+}
+
+.due-date-calendar-day {
+height: 32px;
+width: 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+border-radius: 50%;
+font-size: 13px;
+margin: 0 auto;
+color: #333;
+}
+
+.due-date-calendar-day:hover:not(.empty-day):not(.current-day) {
+background-color: #f0f0f5;
+}
+
+.due-date-calendar-day.current-day {
+background-color: #e53935;
+color: white;
+}
+
+.due-date-calendar-day.selected-day:not(.current-day) {
+background-color: #6355FF;
+color: white;
+}
+
+.due-date-calendar-day.empty-day {
+cursor: default;
+}
+
+.due-date-calendar-day.other-month-day {
+color: #ccc;
+}
+
+/* Task type dropdown styles */
+.task-type-dropdown {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1050;
+background-color: white;
+border-radius: 6px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+width: 220px;
+border: 1px solid #e0e0e0;
+margin-top: 5px;
+overflow: hidden;
+padding: 10px;
+display: block;
+opacity: 1;
+visibility: visible;
+}
+
+.task-project-selector {
+display: flex;
+margin-bottom: 16px;
+gap: 10px;
+position: relative;
+}
+
+.task-type-btn {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background-color: #f5f5f5;
+border: 1px solid #e0e0e0;
+border-radius: 4px;
+padding: 6px 10px;
+font-size: 13px;
+color: #555;
+cursor: pointer;
+transition: all 0.2s ease;
+}
+
+.task-type-btn:hover {
+background-color: #f5f5f5;
+}
+
+.task-type-option.selected {
+background-color: #f0f0f5;
+}
+
+.task-type-radio {
+margin-right: 10px;
+font-size: 14px;
+width: 18px;
+display: inline-flex;
+justify-content: center;
+}
+
+.task-type-label {
+flex-grow: 1;
+}
+
+.task-type-check {
+color: #6355FF;
+margin-left: 10px;
+font-weight: bold;
+}
+/* Ensure all buttons in the modal are clickable */
+.task-modal button,
+.task-modal-tab,
+.task-modal-action,
+.task-modal-close,
+.task-type-btn,
+.task-status-badge,
+.task-option-btn,
+.task-description-btn,
+.task-ai-btn,
+.task-show-fields-btn,
+.task-new-field-btn,
+.task-templates-btn,
+.task-attachment-btn,
+.task-create-btn {
+cursor: pointer;
+position: relative;
+z-index: 1;
+}
+
+/* Ensure the modal is above other content */
+.modal-overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 1000;
+}
+
+.task-modal {
+background-color: white;
+border-radius: 8px;
+width: 650px;
+max-width: 95%;
+overflow: hidden;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+display: flex;
+flex-direction: column;
+z-index: 1001;
+position: relative;
+}
+
+/* Fix for dropdowns to ensure they're clickable */
+.task-type-dropdown,
+.status-options-dropdown {
+z-index: 1002;
+}
+
+@media screen and (max-width: 360px) {
+  .img-container {
+    margin-top: 50px;
+  }
+}

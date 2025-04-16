@@ -1,0 +1,51 @@
+/* Service box equal height styles */
+.services {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .services .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .services .content ul {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  
+  /* Adjust spacing between list items */
+  .services .content ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Add padding to the bottom of the last item to ensure balanced spacing */
+  .services .content ul li:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Fix for the icon positioning */
+  .services .icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -55px;
+  }
+  
+  /* Ensure minimum height for content area */
+  .services .content {
+    min-height: 150px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .services .content {
+      min-height: auto;
+    }
+  }
