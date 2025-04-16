@@ -104,6 +104,31 @@ const Contact = () => {
     }
   };
 
+  const contactCardStyle = {
+    backgroundColor: 'white',
+    borderRadius: '10px',
+    padding: '12px',
+    display: 'flex',
+    alignItems: 'center',
+    boxShadow: '0 3px 12px rgba(0,0,0,0.06)',
+    marginBottom: '10px',
+    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+    cursor: 'pointer',
+    border: '1px solid #f5f5f5'
+  };
+
+  const iconCircleStyle = {
+    backgroundColor: '#faa307',
+    borderRadius: '50%',
+    width: '38px',
+    height: '38px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: '10px',
+    boxShadow: '0 2px 8px rgba(250, 163, 7, 0.3)'
+  };
+
   return (
     <section style={{ backgroundColor: "#ffffff", padding: "60px 0", minHeight: "60vh"}} id="contact">
       <div className="container">
@@ -140,40 +165,74 @@ const Contact = () => {
                   lineHeight: '1.7'
                 }}
               >
-                We're pulling all the stops to make sure your brand gets noticed in this app-driven world. Whether you're looking to develop an e-commerce app or a product application with bluetooth connectivity, we got you covered.
+                We build cutting-edge digital solutions—from AI and Web3 to e-commerce and DevOps—that give your brand the edge in a tech-first world.
               </motion.p>
               
-              <motion.div 
-                variants={itemVariants}
-                className="contact-info mb-3"
-                whileHover={{ x: 5, transition: { duration: 0.2 } }}
-              >
-                <h5 style={{ fontWeight: '600', color: '#333' }}>
-                  <FaMapMarkerAlt size={18} style={{ color: '#faa307', marginRight: '10px' }} />
-                    Production Office: Davao City Philippines
-                </h5>
+              {/* Updated Contact Info Cards */}
+              <motion.div variants={itemVariants} className="mb-2">
+                <div 
+                  style={contactCardStyle}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 3px 12px rgba(0,0,0,0.06)';
+                  }}
+                >
+                  <div style={iconCircleStyle}>
+                    <FaMapMarkerAlt size={16} style={{ color: 'white' }} />
+                  </div>
+                  <div>
+                    <h5 style={{ fontSize: '13px', fontWeight: '700', color: '#333', margin: '0 0 2px 0', letterSpacing: '0.5px' }}>Production Office</h5>
+                    <p style={{ fontSize: '12px', color: '#666', margin: '0 0 1px 0', lineHeight: '1.3' }}>Davao City Philippines</p>
+                  </div>
+                </div>
               </motion.div>
               
-              <motion.div 
-                variants={itemVariants}
-                className="contact-info mb-3"
-                whileHover={{ x: 5, transition: { duration: 0.2 } }}
-              >
-                <h5 style={{ fontWeight: '600', color: '#333' }}>
-                  <FaPhone size={18} style={{ color: '#faa307', marginRight: '10px' }} />
-                  +63-82-2820645
-                </h5>
+              <motion.div variants={itemVariants} className="mb-2">
+                <div 
+                  style={contactCardStyle}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 3px 12px rgba(0,0,0,0.06)';
+                  }}
+                >
+                  <div style={iconCircleStyle}>
+                    <FaPhone size={16} style={{ color: 'white' }} />
+                  </div>
+                  <div>
+                    <h5 style={{ fontSize: '13px', fontWeight: '700', color: '#333', margin: '0 0 2px 0', letterSpacing: '0.5px' }}>PHONE NUMBER</h5>
+                    <p style={{ fontSize: '12px', color: '#666', margin: '0 0 1px 0', lineHeight: '1.3' }}>+63-82-2820645</p>
+                  </div>
+                </div>
               </motion.div>
               
-              <motion.div 
-                variants={itemVariants}
-                className="contact-info mb-5"
-                whileHover={{ x: 5, transition: { duration: 0.2 } }}
-              >
-                <h5 style={{ fontWeight: '600', color: '#333' }}>
-                  <FaEnvelope size={18} style={{ color: '#faa307', marginRight: '10px' }} />
-                  reveriontech@gmail.com
-                </h5>
+              <motion.div variants={itemVariants} className="mb-2">
+                <div 
+                  style={contactCardStyle}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 3px 12px rgba(0,0,0,0.06)';
+                  }}
+                >
+                  <div style={iconCircleStyle}>
+                    <FaEnvelope size={16} style={{ color: 'white' }} />
+                  </div>
+                  <div>
+                    <h5 style={{ fontSize: '13px', fontWeight: '700', color: '#333', margin: '0 0 2px 0', letterSpacing: '0.5px' }}>EMAIL</h5>
+                    <p style={{ fontSize: '12px', color: '#666', margin: 0, lineHeight: '1.3' }}>connect@reveriontech.com</p>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -255,7 +314,7 @@ const Contact = () => {
                   >
                     <label htmlFor="phone" className="form-label" style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '10px' }}>Phone Number</label>
                     <div className="input-group">
-                      <span className="input-group-text" style={{ backgroundColor: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px 0 0 8px' }}>+1</span>
+                      <span className="input-group-text" style={{ backgroundColor: '#f8f9fa', border: '1px solid #eee', borderRadius: '8px 0 0 8px' }}>+63</span>
                       <input 
                         type="text" 
                         className="form-control" 
