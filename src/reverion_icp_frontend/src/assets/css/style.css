@@ -2111,7 +2111,9 @@ button:not(:disabled) {
   position: relative;
   top: 80px;
   z-index: 1;
+  /* background-color: #21232496; */
 }
+
 
 .subcribe-form input {
   padding: 14px 20px;

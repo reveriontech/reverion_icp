@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import Contact from '../components/sections/Contact';
 import AOS from 'aos';
+import Contact from '../components/sections/Contact';
+import HeaderContact from '../components/sections/HeaderContact';
+import SecondCta from '../components/sections/SecondCta';
 
 const ContactPage = () => {
   useEffect(() => {
@@ -17,7 +19,8 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div style={{ paddingTop: '80px' }}> {/* Add padding to account for the fixed navbar */}
+    <div  style={{ paddingTop: '80px' }}>
+      <HeaderContact />
       <Contact />
     </div>
   );

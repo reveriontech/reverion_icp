@@ -60,7 +60,6 @@ const Home = () => {
       <StartProject />
       <Partners />
       <FAQ />
-      <Contact />
     </main>
   );
 };

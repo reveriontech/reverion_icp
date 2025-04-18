@@ -20,6 +20,7 @@ import FAQ from './components/sections/FAQ';
 import ChatWidget from './components/sections/ChatWidget';
 import MobileMenuButton from './components/common/MobileMenuButton'; 
 import Partners from './components/sections/Partners';
+import HeaderContact from './components/sections/HeaderContact';
 
 function App() {
   const { user } = useAuth(); // Get authentication status
@@ -71,7 +72,8 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/contact" element={<ContactPage />} /> {/* Updated to use the new ContactPage component */}
+        <Route path="/contact" element={<ContactPage />} /> 
+        <Route path="/headercontact" element={<HeaderContact to="/" />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
