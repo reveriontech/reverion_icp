@@ -86,18 +86,18 @@ const Contact = () => {
   const contactItems = [
     {
       icon: <FaMapMarkerAlt size={35} />,
-      title: "OUR MAIN OFFICE",
-      content: "SoHo 94 Broadway St\nNew York, NY 10001"
+      title: "Production Office",
+      content: "Davao City, Philippines"
     },
     {
       icon: <FaPhone size={35} />,
-      title: "PHONE NUMBER",
-      content: "234-9876-5400\n888-0123-4567 (Toll Free)"
+      title: "PHONE",
+      content: "+63 82 282 0645"
     },
     {
       icon: <FaEnvelope size={35} />,
       title: "EMAIL",
-      content: "hello@theme.com"
+      content: "reveriontech@gmail.com"
     }
   ];
   
