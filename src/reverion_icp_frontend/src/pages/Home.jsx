@@ -51,7 +51,6 @@ const Home = () => {
   return (
     <main>
       <Hero />
-      <About />
       <Services />
       <Cta />
       <Team />

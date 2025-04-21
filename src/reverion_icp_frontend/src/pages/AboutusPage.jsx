@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import About from '../components/sections/About';
-import HeaderContact from '../components/sections/HeaderContact';
+import HeaderAboutus from '../components/sections/HeaderAboutus';
 
 const AboutusPage = () => {
   useEffect(() => {
@@ -19,7 +19,7 @@ const AboutusPage = () => {
 
   return (
     <div style={{ paddingTop: '80px' }}>
-      <HeaderContact />
+      <HeaderAboutus />
       <About />
     </div>
   );

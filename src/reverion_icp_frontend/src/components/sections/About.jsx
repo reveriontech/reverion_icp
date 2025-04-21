@@ -34,7 +34,7 @@ const About = () => {
   };
 
   return (
-    <section className="py-5"  style={{backgroundColor: "white",}} id="about">
+    <section className="py-5"  style={{backgroundColor: "white", }} id="about">
       <div className="container">
         <motion.div
           className="row justify-content-between align-items-center"

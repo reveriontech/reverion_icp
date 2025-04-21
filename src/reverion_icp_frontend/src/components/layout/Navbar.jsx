@@ -6,6 +6,9 @@ import AuthModal from '../sections/AuthModal';
 import { useAuth } from '../../context/AuthContext';
 import '../../assets/css/Navbar.css'; 
 
+// icons
+import { FaFacebookSquare, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+
 const Navbar = () => {
   const { user, logout } = useAuth();
   const location = useLocation();
@@ -629,35 +632,52 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            
-            {/* Move login/signup buttons outside the navbar-nav */}
-            {user ? (
-                <div className={`button--form ${isSticky ? 'sticky' : ''}`}>
-                  <div 
-                    className={`login--button ${isSticky && !isMobile ? 'sticky' : ''}`}
-                    onClick={handleLogout}
-                    style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
-                  >
-                    <FaUser />
-                    Log Out
-                  </div>
-                </div>
-              ) : (
-                <div className={`button--form ${isSticky ? 'sticky' : ''}`}>
-                  <div 
-                    className={`login--button ${isSticky && !isMobile ? 'sticky' : ''}`}
-                    onClick={openLoginModal}
-                  >
-                    Log In
-                  </div>
-                  <div 
-                    className='sign--button'
-                    onClick={openSignupModal}
-                  >
-                    Sign Up
-                  </div>
-                </div>
-              )}
+
+            <div className={`${isSticky ? 'sticky' : ''} d-flex align-items-center ms-auto`}>
+                <ul className="list-unstyled d-flex mb-0">
+                  <li className="mx-1">
+                    <a href="#" className="social-icon-link">
+                      <div className="icon-circle">
+                        <FaFacebookSquare 
+                          size={16} 
+                          className={`social-icon ${isSticky ? 'text-dark' : 'text-white'}`} 
+                        />
+                      </div>
+                    </a>
+                  </li>
+                  <li className="mx-1">
+                    <a href="#" className="social-icon-link">
+                      <div className="icon-circle">
+                        <FaInstagram 
+                          size={16} 
+                          className={`social-icon ${isSticky ? 'text-dark' : 'text-white'}`} 
+                        />
+                      </div>
+                    </a>
+                  </li>
+                  <li className="mx-1">
+                    <a href="#" className="social-icon-link">
+                      <div className="icon-circle">
+                        <FaLinkedin 
+                          size={16} 
+                          className={`social-icon ${isSticky ? 'text-dark' : 'text-white'}`} 
+                        />
+                      </div>
+                    </a>
+                  </li>
+                  <li className="mx-1">
+                    <a href="#" className="social-icon-link">
+                      <div className="icon-circle">
+                        <FaYoutube 
+                          size={16} 
+                          className={`social-icon ${isSticky ? 'text-dark' : 'text-white'}`} 
+                        />
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
           </div>
         </div>
       </nav>
