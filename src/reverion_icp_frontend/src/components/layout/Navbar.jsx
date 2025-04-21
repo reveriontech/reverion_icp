@@ -149,7 +149,7 @@ const Navbar = () => {
     };
     
     const updateActiveSection = () => {
-      const sections = ['home', 'about', 'offer', 'team', 'price', 'contact', 'partners'];
+      const sections = ['home', 'about', 'offer', 'team', 'price', 'contact', 'partners', 'faq', 'portfolio'];
       
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
@@ -226,18 +226,18 @@ const Navbar = () => {
           // Check if this is a dropdown toggle
           const isDropdownToggle = link.classList.contains('dropdown-toggle');
           
-          // For Services dropdown, check if any of its sections are active
-          const isServicesActive = isDropdownToggle && link.id === 'servicesDropdown' && 
-            (isActive('offer') || isActive('about') || isActive('price'));
+          // For About Us dropdown, check if any of its sections are active
+          const isAboutDropdownActive = isDropdownToggle && link.id === 'aboutDropdown' && 
+            (isActive('about') || isActive('partners') || isActive('team') || isActive('faq'));
             
-          // For Pages dropdown, check if any of its sections are active
-          const isPagesActive = isDropdownToggle && link.id === 'pagesDropdown' && 
-            (isActive('contact') || isActive('team') || isActive('faq'));
+          // For Solutions dropdown, check if any of its sections are active
+          const isSolutionsDropdownActive = isDropdownToggle && link.id === 'solutionsDropdown' && 
+            (isActive('price') || isActive('portfolio'));
           
-          const isCurrentActive = sectionId === activeSection || isServicesActive || isPagesActive;
+          const isCurrentActive = sectionId === activeSection || isAboutDropdownActive || isSolutionsDropdownActive;
           const isHovered = hoveredItem === sectionId || 
-                           (hoveredItem === 'services' && isDropdownToggle && link.id === 'servicesDropdown') ||
-                           (hoveredItem === 'pages' && isDropdownToggle && link.id === 'pagesDropdown');
+                           (hoveredItem === 'about-dropdown' && isDropdownToggle && link.id === 'aboutDropdown') ||
+                           (hoveredItem === 'solutions-dropdown' && isDropdownToggle && link.id === 'solutionsDropdown');
           
           if (sectionId === 'project') {
             return;
@@ -401,8 +401,8 @@ const Navbar = () => {
     setHoveredItem(item);
     
     // Add subtle ripple effect on hover for dropdown items
-    if (item === 'offer' || item === 'about' || item === 'price' || 
-        item === 'contact' || item === 'team' || item === 'faq') {
+    if (item === 'about' || item === 'partners' || item === 'team' || item === 'faq' || 
+        item === 'price' || item === 'portfolio' || item === 'contact') {
       handleDropdownItemFocus(item);
     }
   };
@@ -471,73 +471,52 @@ const Navbar = () => {
                 )}
               </li>
               
-              {/* Services Dropdown */}
+              {/* About Us Dropdown */}
               <li 
-                className={`nav-item dropdown ${isActive('offer') || isActive('about') || isActive('price') ? 'active' : ''}`}
-                onMouseEnter={() => handleMouseEnter('services')}
+                className={`nav-item dropdown ${isActive('about') || isActive('partners') || isActive('team') || isActive('faq') ? 'active' : ''}`}
+                onMouseEnter={() => handleMouseEnter('about-dropdown')}
                 onMouseLeave={handleMouseLeave}
               >
-                <a 
+                {/* The main link goes directly to About page */}
+                <Link 
                   className="nav-link dropdown-toggle custom-nav-link" 
-                  href="#"
-                  id="servicesDropdown" 
+                  to="/about"
+                  id="aboutDropdown" 
                   role="button" 
                   data-bs-toggle="dropdown" 
                   aria-expanded="false"
+                  onClick={(e) => {
+                    // Prevent dropdown from opening when clicking the main link
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Navigate to the about page
+                    window.location.href = '/about';
+                  }}
                 >
-                  Work
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="servicesDropdown">
+                  About Us
+                </Link>
+                <ul className="dropdown-menu" aria-labelledby="aboutDropdown">
                   <li onMouseEnter={() => handleMouseEnter('about')} onMouseLeave={handleMouseLeave}>
-                      {location.pathname === '/' ? (
-                        <a 
-                          className={`dropdown-item ${isActive('about') ? 'active' : ''}`}
-                          href="#about" 
-                          onClick={(e) => scrollToSection('about', e)}
-                        >
-                          About us
-                        </a>
-                      ) : (
-                        <Link className="dropdown-item" to="/about">
-                          About us
-                        </Link>
-                      )}
-                    </li>
-                    <li onMouseEnter={() => handleMouseEnter('offer')} onMouseLeave={handleMouseLeave}>
-                      {location.pathname === '/' ? (
-                        <a 
-                          className={`dropdown-item ${isActive('offer') ? 'active' : ''}`}
-                          href="#offer" 
-                          onClick={(e) => scrollToSection('offer', e)}
-                        >
-                          Services
-                        </a>
-                      ) : (
-                        <Link className="dropdown-item" to="/service">
-                          Services
-                        </Link>
-                      )}
-                    </li>
-                </ul>
-              </li>
-              
-              {/* Pages Dropdown */}
-              <li 
-                className={`nav-item dropdown ${isActive('contact') || isActive('team') || isActive('faq') ? 'active' : ''}`}
-                onMouseEnter={() => handleMouseEnter('pages')}
-                onMouseLeave={handleMouseLeave}
-              >
-                <a 
-                  className="nav-link dropdown-toggle custom-nav-link" 
-                  href="#"
-                  id="pagesDropdown" 
-                  role="button" 
-                  data-bs-toggle="dropdown" 
-                  aria-expanded="false"
-                >
-                  Pages
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="pagesDropdown">
+                    {location.pathname === '/' ? (
+                      <a 
+                        className={`dropdown-item ${isActive('about') ? 'active' : ''}`}
+                        href="#about" 
+                        onClick={(e) => {
+                          // Prevent dropdown from opening when clicking the main link
+                          e.preventDefault();
+                          e.stopPropagation();
+                          // Navigate to the about page
+                          window.location.href = '/about';
+                        }}
+                      >
+                        About Us
+                      </a>
+                    ) : (
+                      <Link className="dropdown-item" to="/about">
+                        About Us
+                      </Link>
+                    )}
+                  </li>
                   <li onMouseEnter={() => handleMouseEnter('partners')} onMouseLeave={handleMouseLeave}>
                     {location.pathname === '/' ? (
                       <a 
@@ -585,35 +564,70 @@ const Navbar = () => {
                   </li>
                 </ul>
               </li>
-
-                  <li 
-                    className={`nav-item ${location.pathname === '/price' ? 'active' : (location.pathname === '/' && isActive('price') ? 'active' : '')}`}
-                    onMouseEnter={() => handleMouseEnter('price')}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {/* Use Link for direct navigation to Contact page */}
-                    <Link 
-                      className="nav-link custom-nav-link" 
-                      to="/price"
-                    >
-                      Solutions
-                    </Link>
-                  </li>
               
-                  <li 
-                    className={`nav-item ${location.pathname === '/contact' ? 'active' : (location.pathname === '/' && isActive('contact') ? 'active' : '')}`}
-                    onMouseEnter={() => handleMouseEnter('contact')}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {/* Use Link for direct navigation to Contact page */}
-                    <Link 
-                      className="nav-link custom-nav-link" 
-                      to="/contact"
-                    >
-                      Contact
-                    </Link>
+              {/* Solutions Dropdown */}
+              <li 
+                className={`nav-item dropdown ${isActive('price') || isActive('portfolio') ? 'active' : ''}`}
+                onMouseEnter={() => handleMouseEnter('solutions-dropdown')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <a 
+                  className="nav-link dropdown-toggle custom-nav-link" 
+                  href="#"
+                  id="solutionsDropdown" 
+                  role="button" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false"
+                >
+                  Solutions
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="solutionsDropdown">
+                  <li onMouseEnter={() => handleMouseEnter('price')} onMouseLeave={handleMouseLeave}>
+                    {location.pathname === '/' ? (
+                      <a 
+                        className={`dropdown-item ${isActive('price') ? 'active' : ''}`}
+                        href="#price" 
+                        onClick={(e) => scrollToSection('price', e)}
+                      >
+                        Solutions
+                      </a>
+                    ) : (
+                      <Link className="dropdown-item" to="/price">
+                        Solutions
+                      </Link>
+                    )}
                   </li>
+                  <li onMouseEnter={() => handleMouseEnter('portfolio')} onMouseLeave={handleMouseLeave}>
+                    {location.pathname === '/' ? (
+                      <a 
+                        className={`dropdown-item ${isActive('portfolio') ? 'active' : ''}`}
+                        href="#portfolio" 
+                        onClick={(e) => scrollToSection('portfolio', e)}
+                      >
+                        Portfolio
+                      </a>
+                    ) : (
+                      <Link className="dropdown-item" to="/portfolio">
+                        Portfolio
+                      </Link>
+                    )}
+                  </li>
+                </ul>
+              </li>
               
+              <li 
+                className={`nav-item ${location.pathname === '/contact' ? 'active' : (location.pathname === '/' && isActive('contact') ? 'active' : '')}`}
+                onMouseEnter={() => handleMouseEnter('contact')}
+                onMouseLeave={handleMouseLeave}
+              >
+                {/* Use Link for direct navigation to Contact page */}
+                <Link 
+                  className="nav-link custom-nav-link" 
+                  to="/contact"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
             
             {/* Move login/signup buttons outside the navbar-nav */}

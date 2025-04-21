@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaHandshake, FaRocket, FaGlobe } from 'react-icons/fa';
 import { color } from 'chart.js/helpers';
 
-const WhyChooseSection = () => {
+const About = () => {
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -159,4 +159,4 @@ const WhyChooseSection = () => {
   );
 };
 
-export default WhyChooseSection;
+export default About;

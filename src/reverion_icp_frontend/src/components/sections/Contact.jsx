@@ -94,25 +94,41 @@ const Contact = () => {
       transition: { duration: 0.4, ease: "easeOut" }
     }
   };
-
-  const contactItems = [
-    {
-      icon: <FaMapMarkerAlt size={35} />,
-      title: "PRODUCTION OFFICE",
-      content: "Davao City, Philippines"
-    },
-    {
-      icon: <FaPhone size={35} />,
-      title: "PHONE",
-      content: "+63 82 282 0645"
-    },
-    {
-      icon: <FaEnvelope size={35} />,
-      title: "EMAIL",
-      content: "reveriontech@gmail.com"
-    }
-  ];
   
+  const formVariants = {
+    hidden: { opacity: 0, scale: 0.98 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut", delay: 0.2 }
+    }
+  };
+
+  const contactCardStyle = {
+    backgroundColor: 'white',
+    borderRadius: '10px',
+    padding: '12px',
+    display: 'flex',
+    alignItems: 'center',
+    boxShadow: '0 3px 12px rgba(0,0,0,0.06)',
+    marginBottom: '10px',
+    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+    cursor: 'pointer',
+    border: '1px solid #f5f5f5'
+  };
+
+  const iconCircleStyle = {
+    backgroundColor: '#faa307',
+    borderRadius: '50%',
+    width: '38px',
+    height: '38px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: '10px',
+    boxShadow: '0 2px 8px rgba(250, 163, 7, 0.3)'
+  };
+
   return (
     <section style={{ backgroundColor: "#ffffff", padding: "60px 0", minHeight: "60vh"}} id="contact">
       <div className="container">
@@ -125,7 +141,7 @@ const Contact = () => {
                   color: '#333'
                 }}
               >
-                Let's start building.
+                We Love Talking To Visionaries Like You.
               </motion.h2>
               
               <motion.p 
